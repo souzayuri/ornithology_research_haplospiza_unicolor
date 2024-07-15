@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Sunday, July 14, 2024 12:51:50 PM</msg><msg code="0" type="50">Failed to convert: haplospiza_unicolor_occurrence_XYTableToPoint_ExportFeatures. ERROR 000210: Cannot create output C:\Users\Yuri Souza\Downloads\ebd_US-AL-101_202204_202204_relApr-2022_SAMPLE\haplospiza_unicolor_occurrence_XYTableToPoint_ExportFeatures.shp
+ERROR 000308: Invalid field type
+Failed to execute (CopyFeatures).
+</msg><msg code="0" type="3">Succeeded at Sunday, July 14, 2024 12:51:51 PM (Elapsed Time: 0.66 seconds)</msg></messages>
