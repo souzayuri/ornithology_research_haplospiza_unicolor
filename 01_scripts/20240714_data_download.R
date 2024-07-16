@@ -13,13 +13,25 @@ if(!require(spocc)) install.packages("spocc")
 
 
 occ_spocc <- spocc::occ(query = "Haplospiza unicolor",
-                        from = c("inat", "idigbio", "vertnet", "gbif"),
+                        from = c("gbif", "ebird"),
                         has_coords = TRUE,
-                        limit = 1e5)
+                        limit = 1e5,
+                        ebirdopts = list(key = "mf46dnkqr7jt"))
 
-df_occ_spocc <- spocc::occ2df(occ_spocc)
+# Step 1: Filter the data from gbif
+filtered_data_gbif <- occ_spocc$gbif$data$Haplospiza_unicolor[
+  occ_spocc$gbif$data$Haplospiza_unicolor$basisOfRecord %in% c("HUMAN_OBSERVATION", "OCCURRENCE"), ]
 
-write_csv(df_occ_spocc, "00_data/haplospiza_unicolor_occurrence.csv")
+
+occ_spocc$idigbio$data$Haplospiza_unicolor$
+
+occ_spocc$gbif$data$Haplospiza_unicolor <- filtered_data_gbif
+
+
+
+df_occ_spocc <- spocc::occ2df(occ_spocc, what = "data")
+
+write_csv(filtered_data, "00_data/haplospiza_unicolor_occurrence.csv")
 
 
 x <- occ_spocc$gbif$data$Haplospiza_unicolor |> 
